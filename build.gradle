@@ -1,14 +1,19 @@
 plugins {
+  id 'org.springframework.boot' version '2.3.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
   id 'java'
 }
 
 group = 'com.royalmobile'
 version = '1.0.0'
-sourceCompatability = '1.8'
+sourceCompatibility = '1.8'
+
+repositories {
+  mavenCentral()
+}
 
 task start {
   doLast {
-    java --version
     println 'helloworld'
   }
 }
