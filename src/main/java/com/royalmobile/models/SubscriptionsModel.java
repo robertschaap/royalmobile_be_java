@@ -1,10 +1,18 @@
 package com.royalmobile.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SubscriptionsModel {
 
-  private Subscription subscriptions = new Subscription("20gb", "1year");
+  private List<Subscription> subscriptions = new ArrayList<Subscription>();
 
-  public Subscription getSubscriptions() {
+  public SubscriptionsModel() {
+    Subscription subscription = new Subscription("20gb", "1year");
+    this.subscriptions.add(subscription);
+  }
+
+  public List<Subscription> getSubscriptions() {
     return this.subscriptions;
   }
 }
