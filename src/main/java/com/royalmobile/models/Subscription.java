@@ -17,9 +17,11 @@ package com.royalmobile.models;
  */
 public class Subscription {
 
-  private final String BASE_ID = "royalmobile";
+  // Prevents GSON from exposing this, however consider
+  // splitting into a factory and a separate pojo
+  private transient final String BASE_ID = "royalmobile";
 
-  private Integer id = 0;
+  private int id = 0;
   private String subscriptionId;
   private String durationId;
   private String data;
@@ -30,23 +32,7 @@ public class Subscription {
     this.subscriptionId = this.createSubscriptionId(data, durationId);
   }
 
-  public String createSubscriptionId(String data, String durationId) {
+  private String createSubscriptionId(String data, String durationId) {
     return this.BASE_ID + "-" + "20gb" + "-" + "1year";
-  }
-
-  public Integer getId() {
-    return this.id;
-  }
-
-  public String getSubscriptionId() {
-    return this.subscriptionId;
-  }
-
-  public String getDurationId() {
-    return this.durationId;
-  }
-
-  public String getData() {
-    return this.data;
   }
 }
