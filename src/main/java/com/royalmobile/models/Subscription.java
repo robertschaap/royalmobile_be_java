@@ -25,6 +25,9 @@ public class Subscription {
   private String subscriptionId;
   private String durationId;
   private String data;
+  private String[] benefits_long = { "unlimited calls", "unlimited texts", "unlimited roaming" };
+  private String benefits_short = "unlimited\n calls, texts, roaming";
+  private String regular_price;
 
   public Subscription(String data, String durationId) {
     this.data = data;
