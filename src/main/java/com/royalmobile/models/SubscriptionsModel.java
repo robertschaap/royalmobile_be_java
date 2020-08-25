@@ -8,7 +8,7 @@ public class SubscriptionsModel {
   private List<Subscription> subscriptions = new ArrayList<Subscription>();
 
   public SubscriptionsModel() {
-    Subscription subscription = new Subscription("20gb", "1year");
+    Subscription subscription = new Subscription("20gb", "1year", "20");
     this.subscriptions.add(subscription);
   }
 

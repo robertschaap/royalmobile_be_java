@@ -14,10 +14,11 @@ public class Subscription {
   private String benefits_short = "unlimited\n calls, texts, roaming";
   private String regular_price;
 
-  public Subscription(String data, String durationId) {
+  public Subscription(String data, String durationId, String price) {
     this.data = data;
     this.durationId = durationId;
     this.subscriptionId = this.createSubscriptionId(data, durationId);
+    this.regular_price = price;
   }
 
   private String createSubscriptionId(String data, String durationId) {
