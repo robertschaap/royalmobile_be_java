@@ -1,5 +1,7 @@
 package com.royalmobile;
 
+import com.google.gson.Gson;
+
 enum ApiResponseStatus {
   SUCCESS("success"),
   ERROR("error");
@@ -10,37 +12,30 @@ enum ApiResponseStatus {
     this.status = status;
   }
 
+  @Override
   public String toString() {
-    return status;
+    return this.status;
   }
 }
 
 public class ApiResponse {
 
-  private final String data;
+  private final Object data;
   private final String message;
-  private final ApiResponseStatus status;
+  private final String status;
 
-  public ApiResponse(ApiResponseStatus status, String message, String data) {
+  public ApiResponse(ApiResponseStatus status, String message, Object data) {
     this.data = data;
     this.message = message;
-    this.status = status;
+    this.status = status.toString();
   }
 
-  public String getData() {
-    return this.data;
+  private String toJson() {
+    return new Gson().toJson(this);
   }
 
-  public String getMessage() {
-    return this.message;
-  }
-
-  public ApiResponseStatus getStatus() {
-    return this.status;
-  }
-
-  public static ApiResponse success(String data) {
-    return new ApiResponse(ApiResponseStatus.SUCCESS, null, data);
+  public static String success(Object data) {
+    return new ApiResponse(ApiResponseStatus.SUCCESS, null, data).toJson();
   }
 
   public static ApiResponse error(String errorMessage) {
