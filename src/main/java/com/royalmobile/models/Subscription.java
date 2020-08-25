@@ -6,7 +6,7 @@ public class Subscription {
   // splitting into a factory and a separate pojo
   private transient final String BASE_ID = "royalmobile";
 
-  private int id = 0;
+  private Integer id;
   private String subscriptionId;
   private String durationId;
   private String data;
@@ -14,7 +14,10 @@ public class Subscription {
   private String benefits_short = "unlimited\n calls, texts, roaming";
   private String regular_price;
 
-  public Subscription(String data, String durationId, String price) {
+  // TODO: this works for now but bleeds our fake db logic into the
+  // actual class which should be a POJO, split them somehow
+  public Subscription(Integer id, String data, String durationId, String price) {
+    this.id = id;
     this.data = data;
     this.durationId = durationId;
     this.subscriptionId = this.createSubscriptionId(data, durationId);
