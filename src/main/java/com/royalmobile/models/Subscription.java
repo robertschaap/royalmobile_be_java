@@ -1,20 +1,5 @@
 package com.royalmobile.models;
 
-/**
-  {
-    "id": 1,
-    "subscriptionId": "royalmobile-20gb-1year",
-    "durationId": "1year",
-    "data": "20gb",
-    "benefits_long": [
-      "unlimited calls",
-      "unlimited texts",
-      "unlimited roaming"
-    ],
-    "benefits_short": "unlimited\n calls, texts, roaming",
-    "regular_price": "20"
-  },
- */
 public class Subscription {
 
   // Prevents GSON from exposing this, however consider
@@ -36,6 +21,6 @@ public class Subscription {
   }
 
   private String createSubscriptionId(String data, String durationId) {
-    return this.BASE_ID + "-" + "20gb" + "-" + "1year";
+    return this.BASE_ID + "-" + data + "-" + durationId;
   }
 }
