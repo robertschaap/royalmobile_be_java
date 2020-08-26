@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
 
-  @GetMapping("/")
+  @GetMapping(value = "/", produces = { "application/json" })
   public String getIndex() {
     return ApiResponse.success("Hello World");
   }
