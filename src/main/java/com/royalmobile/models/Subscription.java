@@ -24,6 +24,34 @@ public class Subscription {
     this.regular_price = price;
   }
 
+  public Integer getId() {
+    return this.id;
+  }
+
+  public String getSubscriptionId() {
+    return this.subscriptionId;
+  }
+
+  public String getDurationId() {
+    return this.durationId;
+  }
+
+  public String getData() {
+    return this.data;
+  }
+
+  public String[] getBenefits_long() {
+    return this.benefits_long;
+  }
+
+  public String getBenefits_short() {
+    return this.benefits_short;
+  }
+
+  public String getRegular_price() {
+    return this.regular_price;
+  }
+
   private String createSubscriptionId(String data, String durationId) {
     return this.BASE_ID + "-" + data + "-" + durationId;
   }
