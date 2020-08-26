@@ -30,6 +30,18 @@ public class ApiResponse {
     this.status = status.toString();
   }
 
+  public Object getData() {
+    return this.data;
+  }
+
+  public String getMessage() {
+    return this.message;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
   private String toJson() {
     return new Gson().toJson(this);
   }
