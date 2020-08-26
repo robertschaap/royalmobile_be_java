@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
   @GetMapping("/")
-  public ApiResponse getIndex() {
+  public String getIndex() {
     return ApiResponse.success("Hello World");
   }
 }
