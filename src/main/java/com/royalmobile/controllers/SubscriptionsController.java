@@ -10,7 +10,7 @@ public class SubscriptionsController {
 
   private SubscriptionsModel subscriptionsModel = new SubscriptionsModel();
 
-  @GetMapping("/api/subscriptions")
+  @GetMapping(value = "/api/subscriptions", produces = { "application/json" })
   public String getSubscriptions() {
     return ApiResponse.success(
       this.subscriptionsModel.getSubscriptions()
