@@ -1,11 +1,14 @@
 package com.royalmobile.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Product {
   private Integer id = 0;
   private String manufacturer;
   private String model;
   private String modelId;
-  private ProductVariant[] variants;
+  private List<ProductVariant> variants = new ArrayList<ProductVariant>();
 
   public Product(Integer id, String manufacturer, String model, String modelId) {
     this.id = id;
@@ -46,11 +49,11 @@ public class Product {
     this.modelId = modelId;
   }
 
-  public ProductVariant[] getVariants() {
+  public List<ProductVariant> getVariants() {
     return variants;
   }
 
-  public void setVariants(ProductVariant[] variants) {
-    this.variants = variants;
+  public void setVariant(ProductVariant variant) {
+    this.variants.add(variant);
   }
 }
