@@ -15,27 +15,42 @@ public class Product {
   }
 
   public Integer getId() {
-    return this.id;
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getManufacturer() {
-    return this.manufacturer;
+    return manufacturer;
+  }
+
+  public void setManufacturer(String manufacturer) {
+    this.manufacturer = manufacturer;
   }
 
   public String getModel() {
-    return this.model;
+    return model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
   }
 
   public String getModelId() {
-    return this.modelId;
+    return modelId;
   }
 
-  // TODO: implement
-  public void createVariant() {
-    return;
+  public void setModelId(String modelId) {
+    this.modelId = modelId;
   }
 
   public ProductVariant[] getVariants() {
-    return this.variants;
+    return variants;
+  }
+
+  public void setVariants(ProductVariant[] variants) {
+    this.variants = variants;
   }
 }
