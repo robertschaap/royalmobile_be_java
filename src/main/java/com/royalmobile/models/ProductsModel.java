@@ -6,6 +6,7 @@ import java.util.List;
 public class ProductsModel {
 
   private Integer nextProductId = 0;
+  private Integer nextVariantId = 0;
 
   private List<Product> products = new ArrayList<Product>();
 
@@ -18,19 +19,21 @@ public class ProductsModel {
   }
 
   public void initProductsModel() {
+    String[] capacities = { "16gb", "32gb", "64gb", "128gb" };
 
-    // TODO: one loop for now for developer sanity while ProductVariant is being built
-    for (int i = 0; i < 1; i++) {
-
+    for (int i = 0; i < 6; i++) {
       String model = "iPhone X" + Integer.toString(i + 1);
       String modelId = "apple-iphonex" + Integer.toString(i + 1);
-      Product product = new Product(this.nextProductId, "Apple", model, modelId);
+      Product product = new Product(this.nextProductId++, "Apple", model, modelId);
+
+      for (String capacity : capacities) {
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "lime", "#7ec09a"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "purple", "#8097c2"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "green", "#bae596"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "pink", "#d59a8d"));
+      }
 
       this.products.add(product);
-      this.nextProductId++;
     }
   }
 }
-
-// 16 - 32 - 64 - 128
-// lime, purple, green, pink
