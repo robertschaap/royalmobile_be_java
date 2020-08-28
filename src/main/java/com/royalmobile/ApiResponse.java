@@ -50,7 +50,7 @@ public class ApiResponse {
     return new ApiResponse(ApiResponseStatus.SUCCESS, null, data).toJson();
   }
 
-  public static ApiResponse error(String errorMessage) {
-    return new ApiResponse(ApiResponseStatus.ERROR, errorMessage, null);
+  public static String error(String errorMessage) {
+    return new ApiResponse(ApiResponseStatus.ERROR, errorMessage, null).toJson();
   }
 }
