@@ -12,8 +12,6 @@ public class ProductsController {
 
   @GetMapping(value = "/api/products", produces = { "application/json" })
   public String getProducts() {
-    return ApiResponse.success(
-      this.productsModel.getProducts()
-    );
+    return ApiResponse.success(this.productsModel.getProducts());
   }
 }
