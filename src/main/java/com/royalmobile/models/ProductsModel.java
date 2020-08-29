@@ -18,6 +18,16 @@ public class ProductsModel {
     return this.products;
   }
 
+  public Product getProductByModelId(String modelId) throws Exception {
+    for (Product product : this.products) {
+      if (product.getModelId().equals(modelId)) {
+        return product;
+      }
+    }
+
+    throw new Exception("Not Found");
+  }
+
   public void initProductsModel() {
     String[] capacities = { "16gb", "32gb", "64gb", "128gb" };
 
