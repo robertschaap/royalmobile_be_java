@@ -6,7 +6,12 @@ import java.util.List;
 public class CartModel {
   private List<Cart> carts = new ArrayList<Cart>();
 
-  public CartModel() {}
+  public CartModel() {
+    Cart testCart = new Cart();
+    testCart.setId("new-cart");
+
+    this.carts.add(testCart);
+  }
 
   public Cart getCartById (String cartId) throws Exception {
     for (Cart cart : this.carts) {
@@ -16,5 +21,12 @@ public class CartModel {
     }
 
     throw new Exception();
+  }
+
+  public Cart createCart() {
+    Cart cart = new Cart();
+    this.carts.add(cart);
+
+    return cart;
   }
 }
