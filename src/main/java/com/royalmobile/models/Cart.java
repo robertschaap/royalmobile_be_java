@@ -2,6 +2,7 @@ package com.royalmobile.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 class Totals {
 
@@ -16,6 +17,6 @@ public class Cart {
   public Totals totals = new Totals();
 
   public Cart() {
-    this.id = "cart-id";
+    this.id = UUID.randomUUID().toString();
   }
 }
