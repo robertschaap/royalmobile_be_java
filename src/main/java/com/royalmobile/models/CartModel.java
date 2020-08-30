@@ -6,12 +6,15 @@ import java.util.List;
 public class CartModel {
   private List<Cart> carts = new ArrayList<Cart>();
 
-  public CartModel() {
-    carts.add(new Cart());
-  }
+  public CartModel() {}
 
-  public Cart getCartById (String cartId) {
-    // TODO: temp, try to find, otherwise throw, let controller delegate
-    return carts.get(0);
+  public Cart getCartById (String cartId) throws Exception {
+    for (Cart cart : this.carts) {
+      if (cart.getId().equals(cartId)) {
+        return cart;
+      }
+    }
+
+    throw new Exception();
   }
 }
