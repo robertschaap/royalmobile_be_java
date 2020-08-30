@@ -19,4 +19,28 @@ public class Cart {
   public Cart() {
     this.id = UUID.randomUUID().toString();
   }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public List<String> getItems() {
+    return items;
+  }
+
+  public void setItems(List<String> items) {
+    this.items = items;
+  }
+
+  public Totals getTotals() {
+    return totals;
+  }
+
+  public void setTotals(Totals totals) {
+    this.totals = totals;
+  }
 }
