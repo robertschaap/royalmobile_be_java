@@ -13,6 +13,11 @@ public class CartController {
 
   @GetMapping(value = "/api/cart/{cartId}", produces = { "application/json" })
   public String getCart(@PathVariable String cartId) {
-    return ApiResponse.success(this.cartModel.getCartById(cartId));
+
+    try {
+      return ApiResponse.success(this.cartModel.getCartById(cartId));
+    } catch (Exception e) {
+      return ApiResponse.error("Not Found");
+    }
   }
 }
