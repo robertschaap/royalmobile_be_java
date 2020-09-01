@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Cart {
 
   public String id;
-  public List<String> items = new ArrayList<String>();
+  public List<CartItem> items = new ArrayList<CartItem>();
   public CartTotals totals = new CartTotals("", "");
 
   public Cart() {
@@ -22,11 +22,11 @@ public class Cart {
     this.id = id;
   }
 
-  public List<String> getItems() {
+  public List<CartItem> getItems() {
     return items;
   }
 
-  public void setItems(List<String> items) {
+  public void setItems(List<CartItem> items) {
     this.items = items;
   }
 
