@@ -2,8 +2,8 @@ package com.royalmobile.models;
 
 public class CartTotals {
 
-  public String monthly_price;
-  public String onetime_price;
+  private String monthly_price;
+  private String onetime_price;
 
   public CartTotals(String monthlyPrice, String onetimePrice) {
     this.monthly_price = monthlyPrice;
