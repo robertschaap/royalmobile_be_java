@@ -1,11 +1,5 @@
 package com.royalmobile.models;
 
-/**
- * { "id": 1, "variantId": "apple-iphonex1-16gb-lime", "color": "lime",
- * "colorHex": "#7ec09a", "capacity": "16gb", "is_in_stock": true,
- * "is_preorder": true, "regular_price": "265", "discounted_price": "239",
- * "has_discounts": true }
- */
 public class ProductVariant {
   private Integer id;
   private String variantId;
