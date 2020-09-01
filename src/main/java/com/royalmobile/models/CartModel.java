@@ -39,9 +39,6 @@ public class CartModel {
       cart = this.getCartById(cartId);
     }
 
-    // TODO: private items and make this a proper method that returns the cart
-    cart.items.add(new CartItem());
-
-    return cart;
+    return cart.addItem(new CartItem());
   }
 }

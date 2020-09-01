@@ -6,9 +6,9 @@ import java.util.UUID;
 
 public class Cart {
 
-  public String id;
-  public List<CartItem> items = new ArrayList<CartItem>();
-  public CartTotals totals = new CartTotals("", "");
+  private String id;
+  private List<CartItem> items = new ArrayList<CartItem>();
+  private CartTotals totals = new CartTotals("", "");
 
   public Cart() {
     this.id = UUID.randomUUID().toString();
@@ -36,5 +36,11 @@ public class Cart {
 
   public void setTotals(CartTotals totals) {
     this.totals = totals;
+  }
+
+  public Cart addItem(CartItem item) {
+    this.items.add(item);
+
+    return this;
   }
 }
