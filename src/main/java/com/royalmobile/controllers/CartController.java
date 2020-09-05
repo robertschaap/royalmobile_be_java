@@ -1,10 +1,13 @@
 package com.royalmobile.controllers;
 
+import java.util.Map;
+
 import com.royalmobile.ApiResponse;
 import com.royalmobile.models.CartModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -28,10 +31,13 @@ public class CartController {
     }
   }
 
-  @PatchMapping(value = "/api/cart/{cartId}/item")
-  public String addCartItem(@PathVariable String cartId) {
+  @PatchMapping(value = "/api/cart/{cartId}/item", produces = { "application/json" })
+  public String addCartItem(@PathVariable String cartId, @RequestParam Map<String, String> body) {
+    String variantId = body.get("variantId");
+    String subscriptionId = body.get("subscriptionId");
+
     try {
-      return ApiResponse.success(cartModel.addCartItem(cartId));
+      return ApiResponse.success(cartModel.addCartItem(cartId, variantId, subscriptionId));
     } catch (Exception e) {
       return ApiResponse.error("Not Found");
     }
