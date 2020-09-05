@@ -1,36 +1,18 @@
 package com.royalmobile.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.royalmobile.db.Connection;
 
 public class CartModel {
-  private List<Cart> carts = new ArrayList<Cart>();
-
-  public CartModel() {
-    Cart testCart = new Cart();
-    testCart.setId("new-cart");
-
-    this.carts.add(testCart);
-  }
 
   public Cart getCartById (String cartId) throws Exception {
-    for (Cart cart : this.carts) {
-      if (cart.getId().equals(cartId)) {
-        return cart;
-      }
-    }
-
-    throw new Exception();
+    return Connection.carts.getCartById(cartId).get();
   }
 
   public Cart createCart() {
-    Cart cart = new Cart();
-    this.carts.add(cart);
-
-    return cart;
+    return Connection.carts.createCart();
   }
 
-  public Cart addCartItem(String cartId) throws Exception {
+  public Cart addCartItem(String cartId, String variantId, String subscriptionId) throws Exception {
     Cart cart;
 
     if (cartId.equals("new")) {
@@ -39,6 +21,10 @@ public class CartModel {
       cart = this.getCartById(cartId);
     }
 
-    return cart.addItem(new CartItem());
+    CartItem c = new CartItem();
+    c.setProduct(Connection.products.getProductByModelId("apple-iphonex1").get());
+    c.setSubscription(Connection.subscriptions.getSubScriptionById("royalmobile-20gb-1year").get());
+
+    return cart.addItem(c);
   }
 }
