@@ -1,5 +1,7 @@
 package com.royalmobile.db;
 
+import java.util.Optional;
+
 import com.royalmobile.models.Subscription;
 
 public class SubscriptionsTable {
@@ -16,5 +18,15 @@ public class SubscriptionsTable {
 
   public Subscription[] getSubscriptions() {
     return this.subscriptions;
+  }
+
+  public Optional<Subscription> getSubScriptionById(String subscriptionId) {
+    for (Subscription subscription : this.subscriptions) {
+      if (subscription.getSubscriptionId().equals(subscriptionId)) {
+        return Optional.of(subscription);
+      }
+    }
+
+    return Optional.empty();
   }
 }
