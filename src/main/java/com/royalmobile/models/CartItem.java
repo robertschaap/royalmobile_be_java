@@ -1,12 +1,27 @@
 package com.royalmobile.models;
 
+import java.util.UUID;
+
 public class CartItem {
+  private String id;
   private Product product;
   private Subscription subscription;
   private CartTotals totals;
 
+  public CartItem() {
+    this.id = UUID.randomUUID().toString();
+  }
+
   public CartTotals getTotals() {
     return totals;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public Product getProduct() {
