@@ -11,6 +11,10 @@ public class ProductController {
 
   private ProductsModel productsModel = new ProductsModel();
 
+  /**
+   * @param modelId string of the model ID, i.e. {@code}manufacturer-device{@code}
+   * @return ApiResponse of Product or error
+   */
   @GetMapping(value = "/api/product/{modelId}", produces = { "application/json" })
   public String getProduct(@PathVariable String modelId) {
     try {
