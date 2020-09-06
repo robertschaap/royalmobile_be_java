@@ -10,6 +10,9 @@ public class SubscriptionsController {
 
   private SubscriptionsModel subscriptionsModel = new SubscriptionsModel();
 
+  /**
+   * @return ApiResponse of Subscription list or error
+   */
   @GetMapping(value = "/api/subscriptions", produces = { "application/json" })
   public String getSubscriptions() {
     return ApiResponse.success(
