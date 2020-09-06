@@ -43,4 +43,10 @@ public class Cart {
 
     return this;
   }
+
+  public Cart deleteItem(CartItem item) {
+    this.items.remove(item);
+
+    return this;
+  }
 }
