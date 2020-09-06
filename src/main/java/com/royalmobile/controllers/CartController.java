@@ -21,6 +21,10 @@ public class CartController {
 
   private CartModel cartModel = new CartModel();
 
+  /**
+   * @param cartId UUIDv4 formatted as string
+   * @return ApiResponse of Cart or error
+   */
   @GetMapping(value = "/api/cart/{cartId}", produces = { "application/json" })
   public String getCart(@PathVariable String cartId) {
 
@@ -31,6 +35,11 @@ public class CartController {
     }
   }
 
+  /**
+   * @param cartId either UUIDv4 formatted as string or {@code}new{@code}
+   * @param body {@code}variantId{@code} and {@code}subscriptionId{@code}
+   * @return ApiResponse of Cart with the added item or error
+   */
   @PatchMapping(value = "/api/cart/{cartId}/item", produces = { "application/json" })
   public String addCartItem(@PathVariable String cartId, @RequestParam Map<String, String> body) {
     String variantId = body.get("variantId");
