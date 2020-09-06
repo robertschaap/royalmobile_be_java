@@ -27,4 +27,17 @@ public class CartModel {
 
     return cart.addItem(c);
   }
+
+  public Cart deleteCartItem(String cartId, String itemId) throws Exception {
+    Cart cart = this.getCartById(cartId);
+
+    for (CartItem item : cart.getItems()) {
+      if (item.getId().equals(itemId)) {
+        cart.deleteItem(item);
+        return cart;
+      }
+    }
+
+    throw new Exception("Not found");
+  }
 }
