@@ -10,6 +10,9 @@ public class ProductsController {
 
   private ProductsModel productsModel = new ProductsModel();
 
+  /**
+   * @return ApiResponse of Product list or error
+   */
   @GetMapping(value = "/api/products", produces = { "application/json" })
   public String getProducts() {
     return ApiResponse.success(this.productsModel.getProducts());
