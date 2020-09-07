@@ -4,6 +4,8 @@ import java.util.Map;
 
 import com.royalmobile.ApiResponse;
 import com.royalmobile.models.CartModel;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,6 +50,17 @@ public class CartController {
     try {
       return ApiResponse.success(cartModel.addCartItem(cartId, variantId, subscriptionId));
     } catch (Exception e) {
+      return ApiResponse.error("Not Found");
+    }
+  }
+
+
+  @DeleteMapping(value = "/api/cart/{cartId}/item/{itemId}", produces = { "application/json" })
+  public String deleteCartItem(@PathVariable String cartId, @PathVariable String itemId) {
+    try {
+      return ApiResponse.success(cartModel.deleteCartItem(cartId, itemId));
+    } catch (Exception e) {
+      // TODO clean up the error responses throughout
       return ApiResponse.error("Not Found");
     }
   }
