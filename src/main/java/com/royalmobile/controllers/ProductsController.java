@@ -1,19 +1,18 @@
 package com.royalmobile.controllers;
 
 import com.royalmobile.ApiResponse;
+import com.royalmobile.api.ProductsApi;
 import com.royalmobile.models.ProductsModel;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProductsController {
+public class ProductsController implements ProductsApi {
 
   private ProductsModel productsModel = new ProductsModel();
 
   /**
    * @return ApiResponse of Product list or error
    */
-  @GetMapping(value = "/api/products", produces = { "application/json" })
   public String getProducts() {
     return ApiResponse.success(this.productsModel.getProducts());
   }
