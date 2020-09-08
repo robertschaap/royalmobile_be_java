@@ -40,4 +40,8 @@ public class CartModel {
 
     throw new Exception("Not found");
   }
+
+  public boolean postOrder(String cartId) {
+    return true;
+  }
 }
