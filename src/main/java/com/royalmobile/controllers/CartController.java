@@ -52,4 +52,16 @@ public class CartController implements CartApi {
       return ApiResponse.error("Not Found");
     }
   }
+
+  public String postOrder(@RequestParam Map<String, String> body) {
+    String cartId = body.get("cartId");
+
+    Boolean result = cartModel.postOrder(cartId);
+
+    if (result == true) {
+      return ApiResponse.success(cartId);
+    }
+
+    return ApiResponse.error("Not Found");
+  }
 }
