@@ -42,6 +42,7 @@ public class CartModel {
   }
 
   public boolean postOrder(String cartId) {
+    // TODO; implement properly once FE is ready for it
     return true;
   }
 }
