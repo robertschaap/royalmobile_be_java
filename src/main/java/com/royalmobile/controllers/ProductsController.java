@@ -11,7 +11,7 @@ public class ProductsController implements ProductsApi {
   private ProductsModel productsModel = new ProductsModel();
 
   /**
-   * @return ApiResponse of Product list or error
+   * @return ApiResponse of Product list or empty list
    */
   public String getProducts() {
     return ApiResponse.success(this.productsModel.getProducts());
