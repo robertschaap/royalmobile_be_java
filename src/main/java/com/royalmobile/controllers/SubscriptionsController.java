@@ -11,7 +11,7 @@ public class SubscriptionsController implements SubscriptionsApi {
   private SubscriptionsModel subscriptionsModel = new SubscriptionsModel();
 
   /**
-   * @return ApiResponse of Subscription list or error
+   * @return ApiResponse of Subscription list or empty list
    */
   public String getSubscriptions() {
     return ApiResponse.success(
