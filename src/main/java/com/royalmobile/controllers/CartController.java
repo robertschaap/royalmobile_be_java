@@ -44,6 +44,11 @@ public class CartController implements CartApi {
     }
   }
 
+  /**
+   * @param cartId UUIDv4 formatted as string
+   * @param itemId UUIDv4 formatted as string
+   * @return ApiResponse of Cart with the added item or error
+   */
   public String deleteCartItem(@PathVariable String cartId, @PathVariable String itemId) {
     try {
       return ApiResponse.success(cartModel.deleteCartItem(cartId, itemId));
@@ -52,6 +57,10 @@ public class CartController implements CartApi {
     }
   }
 
+  /**
+   * @param body Map with UUIDv4 {@code}cartId{@code} formatted as string
+   * @return ApiResponse of String or error
+   */
   public String postOrder(@RequestParam Map<String, String> body) {
     String cartId = body.get("cartId");
 
