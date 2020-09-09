@@ -20,7 +20,7 @@ public class ProductController implements ProductApi {
     try {
       return ApiResponse.success(this.productsModel.getProductByModelId(modelId));
     } catch (Exception e) {
-      return ApiResponse.error("Not found");
+      return ApiResponse.error("Could not get product");
     }
   }
 }
