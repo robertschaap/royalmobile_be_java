@@ -24,7 +24,7 @@ public class CartController implements CartApi {
     try {
       return ApiResponse.success(this.cartModel.getCartById(cartId));
     } catch (Exception e) {
-      return ApiResponse.error("Not Found");
+      return ApiResponse.error("Could not get cart");
     }
   }
 
@@ -40,7 +40,7 @@ public class CartController implements CartApi {
     try {
       return ApiResponse.success(cartModel.addCartItem(cartId, variantId, subscriptionId));
     } catch (Exception e) {
-      return ApiResponse.error("Not Found");
+      return ApiResponse.error("Could not add cart item");
     }
   }
 
@@ -48,8 +48,7 @@ public class CartController implements CartApi {
     try {
       return ApiResponse.success(cartModel.deleteCartItem(cartId, itemId));
     } catch (Exception e) {
-      // TODO clean up the error responses throughout
-      return ApiResponse.error("Not Found");
+      return ApiResponse.error("Could not delete cart item");
     }
   }
 
@@ -62,6 +61,6 @@ public class CartController implements CartApi {
       return ApiResponse.success(cartId);
     }
 
-    return ApiResponse.error("Not Found");
+    return ApiResponse.error("Could not post order");
   }
 }
