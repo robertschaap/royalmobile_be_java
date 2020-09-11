@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomErrorController implements ErrorController, CustomErrorApi {
 
   public String getError() {
-    return ApiResponse.error("Terror");
+    return ApiResponse.error("Not found");
   }
 
   @Override
