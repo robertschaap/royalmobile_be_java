@@ -1,4 +1,4 @@
-package com.royalmobile;
+package com.royalmobile.api;
 
 import com.google.gson.Gson;
 

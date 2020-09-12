@@ -1,6 +1,6 @@
 package com.royalmobile.controllers;
 
-import com.royalmobile.ApiResponse;
+import com.royalmobile.api.ApiResponse;
 import com.royalmobile.api.CustomErrorApi;
 
 import org.springframework.boot.web.servlet.error.ErrorController;

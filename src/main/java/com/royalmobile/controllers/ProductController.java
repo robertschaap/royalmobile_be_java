@@ -1,6 +1,6 @@
 package com.royalmobile.controllers;
 
-import com.royalmobile.ApiResponse;
+import com.royalmobile.api.ApiResponse;
 import com.royalmobile.api.ProductApi;
 import com.royalmobile.models.ProductsModel;
 

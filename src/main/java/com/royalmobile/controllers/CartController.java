@@ -2,7 +2,7 @@ package com.royalmobile.controllers;
 
 import java.util.Map;
 
-import com.royalmobile.ApiResponse;
+import com.royalmobile.api.ApiResponse;
 import com.royalmobile.api.CartApi;
 import com.royalmobile.models.CartModel;
 
