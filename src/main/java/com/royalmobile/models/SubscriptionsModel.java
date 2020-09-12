@@ -1,10 +1,12 @@
 package com.royalmobile.models;
 
+import java.util.List;
+
 import com.royalmobile.db.Connection;
 
 public class SubscriptionsModel {
 
-  public Subscription[] getSubscriptions() {
+  public List<Subscription> getSubscriptions() {
     return Connection.subscriptions.getSubscriptions();
   }
 
