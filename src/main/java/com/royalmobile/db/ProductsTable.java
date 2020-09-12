@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.royalmobile.models.Product;
+import com.royalmobile.models.ProductFactory;
 import com.royalmobile.models.ProductVariant;
 
 public class ProductsTable {
@@ -15,12 +16,13 @@ public class ProductsTable {
   private List<Product> products = new ArrayList<Product>();
 
   public ProductsTable() {
+    ProductFactory factory = new ProductFactory();
     String[] capacities = { "16gb", "32gb", "64gb", "128gb" };
 
     for (int i = 0; i < 6; i++) {
       String model = "iPhone X" + Integer.toString(i + 1);
       String modelId = "apple-iphonex" + Integer.toString(i + 1);
-      Product product = new Product(this.nextProductId++, "Apple", model, modelId);
+      Product product = factory.createProduct(this.nextProductId++, "Apple", model, modelId);
 
       for (String capacity : capacities) {
         product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "lime", "#7ec09a"));
