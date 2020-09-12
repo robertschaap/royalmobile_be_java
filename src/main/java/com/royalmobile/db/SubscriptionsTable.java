@@ -9,19 +9,21 @@ import com.royalmobile.models.SubscriptionFactory;
 
 public class SubscriptionsTable {
 
+  private Integer nextSubscriptionId = 0;
+
   private List<Subscription> subscriptions = new ArrayList<Subscription>();
 
   public SubscriptionsTable() {
     SubscriptionFactory factory = new SubscriptionFactory();
 
-    this.subscriptions.add(factory.createSubscription(0, "20gb", "1year", "20"));
-    this.subscriptions.add(factory.createSubscription(1, "40gb", "1year", "30"));
-    this.subscriptions.add(factory.createSubscription(2, "60gb", "1year", "40"));
-    this.subscriptions.add(factory.createSubscription(3, "80gb", "1year", "50"));
-    this.subscriptions.add(factory.createSubscription(4, "20gb", "2year", "18"));
-    this.subscriptions.add(factory.createSubscription(5, "40gb", "2year", "28"));
-    this.subscriptions.add(factory.createSubscription(6, "60gb", "2year", "38"));
-    this.subscriptions.add(factory.createSubscription(7, "80gb", "2year", "48"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "20gb", "1year", "20"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "40gb", "1year", "30"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "60gb", "1year", "40"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "80gb", "1year", "50"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "20gb", "2year", "18"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "40gb", "2year", "28"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "60gb", "2year", "38"));
+    this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "80gb", "2year", "48"));
   }
 
   public List<Subscription> getSubscriptions() {
