@@ -14,6 +14,10 @@ public class SubscriptionsTable {
   private List<Subscription> subscriptions = new ArrayList<Subscription>();
 
   public SubscriptionsTable() {
+    this.seedSubscriptionsTable();
+  }
+
+  public void seedSubscriptionsTable() {
     SubscriptionFactory factory = new SubscriptionFactory();
 
     this.subscriptions.add(factory.createSubscription(nextSubscriptionId++, "20gb", "1year", "20"));
