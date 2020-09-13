@@ -18,6 +18,7 @@ public class ProductVariant {
     this.variantId = modelId + "-" + capacity + "-" + color;
     this.color = color;
     this.colorHex = colorHex;
+    this.capacity = capacity;
   }
 
   public Integer getId() {
