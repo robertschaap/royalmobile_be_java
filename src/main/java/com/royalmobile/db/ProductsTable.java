@@ -16,6 +16,10 @@ public class ProductsTable {
   private List<Product> products = new ArrayList<Product>();
 
   public ProductsTable() {
+    this.seedProductsTable();
+  }
+
+  public void seedProductsTable() {
     ProductFactory factory = new ProductFactory();
     String[] capacities = { "16gb", "32gb", "64gb", "128gb" };
 
