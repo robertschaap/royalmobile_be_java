@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Product {
-  private Integer id = 0;
-  private String manufacturer;
-  private String model;
-  private String modelId;
+  private final Integer id;
+  private final String manufacturer;
+  private final String model;
+  private final String modelId;
   private List<ProductVariant> variants = new ArrayList<ProductVariant>();
 
   public Product(Integer id, String manufacturer, String model, String modelId) {
@@ -21,32 +21,16 @@ public class Product {
     return id;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
   public String getManufacturer() {
     return manufacturer;
-  }
-
-  public void setManufacturer(String manufacturer) {
-    this.manufacturer = manufacturer;
   }
 
   public String getModel() {
     return model;
   }
 
-  public void setModel(String model) {
-    this.model = model;
-  }
-
   public String getModelId() {
     return modelId;
-  }
-
-  public void setModelId(String modelId) {
-    this.modelId = modelId;
   }
 
   public List<ProductVariant> getVariants() {
