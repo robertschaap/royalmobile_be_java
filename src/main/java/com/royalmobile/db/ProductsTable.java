@@ -21,11 +21,11 @@ public class ProductsTable {
 
   public void seedProductsTable() {
     ProductFactory factory = new ProductFactory();
-    String[] capacities = { "16gb", "32gb", "64gb", "128gb" };
+    String[] capacities = { "64gb", "128gb", "256gb", "512gb" };
 
     for (int i = 0; i < 6; i++) {
-      String model = "iPhone X" + Integer.toString(i + 1);
-      String modelId = "apple-iphonex" + Integer.toString(i + 1);
+      String model = "iPhone 12 v" + Integer.toString(i + 1);
+      String modelId = "apple-iphone12v" + Integer.toString(i + 1);
       Product product = factory.createProduct(this.nextProductId++, "Apple", model, modelId);
 
       for (String capacity : capacities) {
