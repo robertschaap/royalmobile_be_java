@@ -7,6 +7,7 @@ import com.royalmobile.api.CartApi;
 import com.royalmobile.models.CartModel;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,10 +34,7 @@ public class CartController implements CartApi {
    * @param body {@code}variantId{@code} and {@code}subscriptionId{@code}
    * @return ApiResponse of Cart with the added item or error
    */
-  public String addCartItem(@PathVariable String cartId, @RequestParam Map<String, String> body) {
-    String variantId = body.get("variantId");
-    String subscriptionId = body.get("subscriptionId");
-
+  public String addCartItem(String cartId, String variantId, String subscriptionId) {
     try {
       return ApiResponse.success(cartModel.addCartItem(cartId, variantId, subscriptionId));
     } catch (Exception e) {
@@ -44,10 +42,18 @@ public class CartController implements CartApi {
     }
   }
 
+  public String addCartItemJson(@PathVariable String cartId, @RequestBody Map<String, String> body) {
+    return this.addCartItem(cartId, body.get("variantId"), body.get("subscriptionId"));
+  }
+
+  public String addCartItemXForm(@PathVariable String cartId, @RequestParam Map<String, String> body) {
+    return this.addCartItem(cartId, body.get("variantId"), body.get("subscriptionId"));
+  }
+
   /**
    * @param cartId UUIDv4 formatted as string
    * @param itemId UUIDv4 formatted as string
-   * @return ApiResponse of Cart with the added item or error
+   * @return ApiResponse of Cart without the deleted item or error
    */
   public String deleteCartItem(@PathVariable String cartId, @PathVariable String itemId) {
     try {
