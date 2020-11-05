@@ -30,10 +30,15 @@ public class CartModel {
     // TODO: check how to better instantiate this, if c.setX below is skips the method returns an invalid cartitem to the frontend
     CartItem c = new CartItem();
     String modelId = split[0] + "-" + split[1];
+    // TODO: filter out only relevant variant
+    Product product = Connection.products.getProductByModelId(modelId).get();
+    Subscription subscription = Connection.subscriptions.getSubScriptionById(subscriptionId).get();
 
-    c.setProduct(Connection.products.getProductByModelId(modelId).get());
-    c.setSubscription(Connection.subscriptions.getSubScriptionById(subscriptionId).get());
-    c.setTotals(new CartTotals("0", "0"));
+    c.setProduct(product);
+    c.setSubscription(subscription);
+    c.setTotals(new CartTotals("0", subscription.getRegular_price()));
+
+    cart.setTotals(new CartTotals("0", subscription.getRegular_price()));
 
     return cart.addItem(c);
   }
