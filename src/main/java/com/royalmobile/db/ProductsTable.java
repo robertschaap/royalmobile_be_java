@@ -29,10 +29,11 @@ public class ProductsTable {
       Product product = factory.createProduct(this.nextProductId++, "Apple", model, modelId);
 
       for (String capacity : capacities) {
-        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "lime", "#7ec09a"));
-        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "purple", "#8097c2"));
-        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "green", "#bae596"));
-        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "pink", "#d59a8d"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "green", "#d8efd5"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "white", "#f5f5f7"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "red", "#d82e2e"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "black", "#25212b"));
+        product.setVariant(new ProductVariant(nextVariantId++, product.getModelId(), capacity, "blue", "#023b63"));
       }
 
       this.products.add(product);
