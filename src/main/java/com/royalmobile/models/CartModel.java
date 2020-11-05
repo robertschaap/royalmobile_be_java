@@ -21,9 +21,19 @@ public class CartModel {
       cart = this.getCartById(cartId);
     }
 
+    String[] split = variantId.split("-");
+
+    if (split.length != 4) {
+      throw new Exception("Could not add cart item");
+    }
+
+    // TODO: check how to better instantiate this, if c.setX below is skips the method returns an invalid cartitem to the frontend
     CartItem c = new CartItem();
-    c.setProduct(Connection.products.getProductByModelId("apple-iphonex1").get());
-    c.setSubscription(Connection.subscriptions.getSubScriptionById("royalmobile-20gb-1year").get());
+    String modelId = split[0] + "-" + split[1];
+
+    c.setProduct(Connection.products.getProductByModelId(modelId).get());
+    c.setSubscription(Connection.subscriptions.getSubScriptionById(subscriptionId).get());
+    c.setTotals(new CartTotals("0", "0"));
 
     return cart.addItem(c);
   }
