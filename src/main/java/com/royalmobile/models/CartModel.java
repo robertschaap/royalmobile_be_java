@@ -21,17 +21,9 @@ public class CartModel {
       cart = this.getCartById(cartId);
     }
 
-    String[] split = variantId.split("-");
-
-    if (split.length != 4) {
-      throw new Exception("Could not add cart item");
-    }
-
     // TODO: check how to better instantiate this, if c.setX below is skips the method returns an invalid cartitem to the frontend
     CartItem c = new CartItem();
-    String modelId = split[0] + "-" + split[1];
-    // TODO: filter out only relevant variant
-    Product product = Connection.products.getProductByModelId(modelId).get();
+    Product product = Connection.products.getProductByVariantId(variantId).get();
     Subscription subscription = Connection.subscriptions.getSubScriptionById(subscriptionId).get();
 
     c.setProduct(product);
