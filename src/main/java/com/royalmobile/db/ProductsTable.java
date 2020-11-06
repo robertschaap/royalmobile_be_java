@@ -54,4 +54,22 @@ public class ProductsTable {
     return Optional.empty();
   }
 
+  public Optional<Product> getProductByVariantId(String variantId) {
+    String[] split = variantId.split("-");
+
+    if (split.length != 4) {
+      return Optional.empty();
+    }
+
+    String modelId = split[0] + "-" + split[1];
+
+    for (Product product : this.products) {
+      if (product.getModelId().equals(modelId)) {
+        return Optional.of(product);
+      }
+    }
+
+    return Optional.empty();
+  }
+
 }
