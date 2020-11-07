@@ -62,14 +62,42 @@ public class ProductsTable {
     }
 
     String modelId = split[0] + "-" + split[1];
+    Product originalProduct = null;
 
     for (Product product : this.products) {
       if (product.getModelId().equals(modelId)) {
-        return Optional.of(product);
+        originalProduct = product;
+        break;
       }
     }
 
-    return Optional.empty();
+    if (originalProduct == null) {
+      return Optional.empty();
+    }
+
+   ProductVariant selectedVariant = null;
+
+   for (ProductVariant variant : originalProduct.getVariants()) {
+     if (variant.getVariantId().equals(variantId)) {
+       selectedVariant = variant;
+       break;
+      }
+    }
+
+    if (selectedVariant == null) {
+      return Optional.empty();
+    }
+
+    Product selectedProduct = new Product(
+      originalProduct.getId(),
+      originalProduct.getManufacturer(),
+      originalProduct.getModel(),
+      originalProduct.getModelId()
+    );
+
+    selectedProduct.setVariant(selectedVariant);
+
+    return Optional.of(selectedProduct);
   }
 
 }
