@@ -23,14 +23,14 @@ public class CartModel {
     }
 
     // TODO: check how to better instantiate this, if c.setX below is skips the method returns an invalid cartitem to the frontend
-    CartItem c = new CartItem();
+    CartItem cartItem = new CartItem();
     Product product = Connection.products.getProductByVariantId(variantId).get();
     Subscription subscription = Connection.subscriptions.getSubScriptionById(subscriptionId).get();
 
-    c.setProduct(product);
-    c.setSubscription(subscription);
-    c.setTotals(CartTotalsService.calculateCartItemTotals(product.getVariants().get(0), subscription));
-    cart.addItem(c);
+    cartItem.setProduct(product);
+    cartItem.setSubscription(subscription);
+    cartItem.setTotals(CartTotalsService.calculateCartItemTotals(product.getVariants().get(0), subscription));
+    cart.addItem(cartItem);
 
     cart.setTotals(CartTotalsService.calculateCartTotals(cart.getItems()));
 
