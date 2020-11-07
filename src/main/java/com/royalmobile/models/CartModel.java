@@ -43,6 +43,7 @@ public class CartModel {
     for (CartItem item : cart.getItems()) {
       if (item.getId().equals(itemId)) {
         cart.deleteItem(item);
+        cart.setTotals(CartTotalsService.calculateCartTotals(cart.getItems()));
         return cart;
       }
     }
