@@ -10,7 +10,6 @@ import com.royalmobile.models.Subscription;
 public class CartTotalsService {
   private static int parseInteger(String price) {
     try {
-      System.out.println(price);
       return Integer.parseInt(price);
     } catch (Exception e) {
       return 0;
