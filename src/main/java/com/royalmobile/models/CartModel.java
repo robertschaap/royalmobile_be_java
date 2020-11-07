@@ -30,10 +30,11 @@ public class CartModel {
     c.setProduct(product);
     c.setSubscription(subscription);
     c.setTotals(CartTotalsService.calculateCartItemTotals(product.getVariants().get(0), subscription));
+    cart.addItem(c);
 
-    cart.setTotals(new CartTotals("0", subscription.getRegular_price()));
+    cart.setTotals(CartTotalsService.calculateCartTotals(cart.getItems()));
 
-    return cart.addItem(c);
+    return cart;
   }
 
   public Cart deleteCartItem(String cartId, String itemId) throws Exception {
