@@ -1,6 +1,7 @@
 package com.royalmobile.models;
 
 import com.royalmobile.db.Connection;
+import com.royalmobile.services.CartTotalsService;
 
 public class CartModel {
 
@@ -28,7 +29,7 @@ public class CartModel {
 
     c.setProduct(product);
     c.setSubscription(subscription);
-    c.setTotals(new CartTotals("0", subscription.getRegular_price()));
+    c.setTotals(CartTotalsService.calculateCartItemTotals(product.getVariants().get(0), subscription));
 
     cart.setTotals(new CartTotals("0", subscription.getRegular_price()));
 
